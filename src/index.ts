@@ -1,4 +1,4 @@
 import { AokiDoc } from "./AokiDoc";
-import { MarkdownTarget } from "./targets/MarkdownTarget";
+import { CommonMarkTarget } from "./targets/CommonMarkTarget";
 
-export { AokiDoc, MarkdownTarget };
+export { AokiDoc, CommonMarkTarget as MarkdownTarget };

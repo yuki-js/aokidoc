@@ -83,12 +83,6 @@ export class AokiDoc {
   }
 
   private makeRenderables() {
-    if (!this.ast) {
-      throw new Error("No AST found");
-    }
-    if (!this.frontmatter) {
-      throw new Error("No frontmatter found");
-    }
     if (!this.md) {
       throw new Error("No markdown found");
     }
@@ -109,15 +103,18 @@ export class AokiDoc {
       },
     };
 
-    const renderable = Markdoc.transform(this.ast, config);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const renderable = Markdoc.transform(this.ast!, config);
 
     this.renderables = renderable;
   }
 
   public compile(md: MdStr): unknown {
     this.md = md;
+
     this.makeRenderables();
 
-    return this.preferences.compileTarget.compile(this.renderables);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return this.preferences.compileTarget.compile(this.renderables!);
   }
 }

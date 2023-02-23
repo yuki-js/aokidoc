@@ -1,4 +1,5 @@
 import { JSONSchemaType } from "ajv";
+import { CompileTarget } from "./targets/CompileTarget";
 
 export interface Preferences {
   language?: string;

@@ -1,5 +1,5 @@
-import { RenderableTreeNode } from "@markdoc/markdoc";
+import { RenderableTreeNodes } from "@markdoc/markdoc";
 
 export abstract class CompileTarget {
-  abstract compile(renderable: RenderableTreeNode): unknown;
+  abstract compile(renderable: RenderableTreeNodes): unknown;
 }
