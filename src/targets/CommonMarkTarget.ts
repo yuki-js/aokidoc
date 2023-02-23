@@ -96,7 +96,7 @@ function render(node: RenderableTreeNodes, parentTagName?: string): string {
 }
 
 function renderTable(children: RenderableTreeNodes[]): string {
-  let output = "";
+  let output = "\n";
   const tHead = children[0] as Tag<"thead">;
   const tBody = children.slice(1) as Tag<"tbody">[];
 
