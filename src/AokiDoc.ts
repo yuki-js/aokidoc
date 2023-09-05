@@ -3,6 +3,8 @@ import Ajv from "ajv";
 import yaml from "js-yaml";
 import addFormats from "ajv-formats";
 import { Preferences, defaultPreferences } from "./Preferences";
+import functions from "./functions";
+
 type MdStr = string;
 type Frontmatter = object;
 
@@ -97,6 +99,7 @@ export class AokiDoc {
     }
 
     const config = {
+      functions,
       variables: {
         ...this.preferences.variables,
         frontmatter: this.frontmatter,
