@@ -2,6 +2,7 @@ import yargs from "yargs";
 import { promises as fs } from "fs";
 import { AokiDoc, MarkdownTarget } from "..";
 import { RenderableASTTarget } from "../targets/RenderableASTTarget";
+import { HtmlTarget } from "../targets/HtmlTarget";
 
 const cmd = yargs
   .scriptName("aokidoc")
@@ -56,12 +57,17 @@ const environment = async () => {
 
   let compileTarget;
   switch (outType) {
+    case "markdown":
     case "md":
       compileTarget = new MarkdownTarget();
       break;
     case "ast":
       compileTarget = new RenderableASTTarget();
       break;
+    case "html":
+      compileTarget = new HtmlTarget();
+      break;
+
     default:
       throw new Error(`Unknown output type: ${outType}`);
   }
